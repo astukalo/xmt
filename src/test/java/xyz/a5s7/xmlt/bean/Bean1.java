@@ -1,11 +1,11 @@
-package com.pmease.commons.xmt.bean;
+package xyz.a5s7.xmlt.bean;
 
-import com.pmease.commons.xmt.VersionedDocument;
+import xyz.a5s7.xmlt.VersionedDocument;
 import org.dom4j.Element;
 
 import java.util.Stack;
 
-public class Bean2 {
+public class Bean1 {
 	private int priority;
 
 	public int getPriority() {

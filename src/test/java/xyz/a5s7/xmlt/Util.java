@@ -1,4 +1,4 @@
-package com.pmease.commons.xmt;
+package xyz.a5s7.xmlt;
 
 import java.io.IOException;
 import java.io.InputStream;

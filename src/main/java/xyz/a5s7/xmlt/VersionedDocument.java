@@ -1,4 +1,4 @@
-package com.pmease.commons.xmt;
+package xyz.a5s7.xmlt;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.core.util.HierarchicalStreams;
@@ -24,11 +24,11 @@ import org.xml.sax.EntityResolver;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 import java.util.Iterator;
 import java.util.List;
@@ -46,9 +46,9 @@ public final class VersionedDocument implements Document, Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private static SAXReader reader = new SAXReader();
-	
-	public static XStream xstream = new XStream();
+	private static final SAXReader reader = new SAXReader();
+
+	private static XStream defaultXstream = new XStream();
 	
 	private transient String xml;
 	
@@ -57,6 +57,9 @@ public final class VersionedDocument implements Document, Serializable {
 	static {
 		reader.setStripWhitespaceText(true);
 		reader.setMergeAdjacentText(true);
+
+		defaultXstream.registerConverter(new NeedMigrationConverter(defaultXstream));
+		defaultXstream.registerConverter(new IgnoreUnknownElementsMapConverter(defaultXstream));
 	}
 
 	public VersionedDocument() {
@@ -321,12 +324,12 @@ public final class VersionedDocument implements Document, Serializable {
 	}
 
 	public List selectNodes(String xpathExpression,
-			String comparisonXPathExpression) {
+                            String comparisonXPathExpression) {
 		return getWrapped().selectNodes(xpathExpression, comparisonXPathExpression);
 	}
 
 	public List selectNodes(String xpathExpression,
-			String comparisonXPathExpression, boolean removeDuplicates) {
+                            String comparisonXPathExpression, boolean removeDuplicates) {
 		return getWrapped().selectNodes(xpathExpression, comparisonXPathExpression, 
 				removeDuplicates);
 	}
@@ -382,7 +385,7 @@ public final class VersionedDocument implements Document, Serializable {
     		oos.writeObject(toXML());
     }
 
-    private void readObject(ObjectInputStream ois) 
+    private void readObject(ObjectInputStream ois)
     		throws ClassNotFoundException, IOException {
     	ois.defaultReadObject();
     	xml = (String) ois.readObject();
@@ -390,7 +393,7 @@ public final class VersionedDocument implements Document, Serializable {
     
     /**
      * Convert the versioned document to UTF8 encoded XML.
-     * @return
+     * @return XML as string
      */
 	public String toXML() {
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -401,8 +404,6 @@ public final class VersionedDocument implements Document, Serializable {
 		try {
 			new XMLWriter(baos, format).write(getWrapped());
 			return baos.toString("UTF8");
-		} catch (UnsupportedEncodingException e) {
-			throw new RuntimeException(e);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
@@ -411,15 +412,13 @@ public final class VersionedDocument implements Document, Serializable {
 	/**
 	 * Construct the document from a XML text.
 	 * @param xml UTF8 encoded XML text
-	 * @return
+	 * @return dom document
 	 */
 	public static VersionedDocument fromXML(String xml) {
 		synchronized (reader) {
 			try {
 				return new VersionedDocument(reader.read(new ByteArrayInputStream(xml.getBytes("UTF8"))));
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			} catch (DocumentException e) {
+			} catch (IOException | DocumentException e) {
 				throw new RuntimeException(e);
 			}
 		}
@@ -437,23 +436,21 @@ public final class VersionedDocument implements Document, Serializable {
 	
 	/**
 	 * Construct the versioned document from specified bean object.
-	 * @param bean
-	 * @return
+	 * @param bean specified object
+	 * @return versioned document
 	 */
 	public static VersionedDocument fromBean(Object bean) {
 		Document dom = DocumentHelper.createDocument();
-		xstream.marshal(bean, new Dom4JWriter(dom));
-		VersionedDocument versionedDom = new VersionedDocument(dom);
-		if (bean != null)
-			versionedDom.setVersion(MigrationHelper.getVersion(bean.getClass()));
-		return versionedDom;
+		defaultXstream.marshal(bean, new Dom4JWriter(dom));
+
+		return  new VersionedDocument(dom);
 	}
-	
+
 	/**
 	 * Convert this document to bean. Migration will performed if necessary.
 	 * During the migration, content of the document will also get updated 
 	 * to reflect current migration result.
-	 * @return
+	 * @return bean deserialized from xml and migrated
 	 */
 	public Object toBean() {
 		return toBean(null, null);
@@ -465,7 +462,7 @@ public final class VersionedDocument implements Document, Serializable {
 	 * to reflect current migration result.
 	 * @param listener the migration listener to receive migration events. Set to 
 	 * null if you do not want to receive migration events.
-	 * @return
+	 * @return object deserialized from document
 	 */
 	public Object toBean(MigrationListener listener) {
 		return toBean(listener, null);
@@ -477,7 +474,7 @@ public final class VersionedDocument implements Document, Serializable {
 	 * to reflect current migration result.
 	 * @param beanClass class of the bean. Class information in current document 
 	 * will be used if this param is set to null
-	 * @return
+	 * @return object deserialized from document
 	 */
 	public Object toBean(Class<?> beanClass) {
 		return toBean(null, beanClass);
@@ -487,51 +484,53 @@ public final class VersionedDocument implements Document, Serializable {
 	 * Convert this document to bean. Migration will performed if necessary.
 	 * During the migration, content of the document will also get updated 
 	 * to reflect current migration result.
-	 * @param listener the migration listener to receive migration events. Set to 
-	 * null if you do not want to receive migration events.
+	 * @param listener the migration listener to receive migration events.
+	 * With listener this method works a little bit slower, as it doesn't use precreated xml serializer.
+	 * Set to null if you do not want to receive migration events.
 	 * @param beanClass class of the bean. Class information in current document 
 	 * will be used if this param is set to null
-	 * @return
+	 * @return object deserialized from document
 	 */
-	public Object toBean(MigrationListener listener, Class<?> beanClass) {	
+	public Object toBean(MigrationListener listener, Class<?> beanClass) {
 		Dom4JReader domReader = new Dom4JReader(this);
-		Class<?> origBeanClass = HierarchicalStreams.readClassType(domReader, 
-				xstream.getMapper());
-		if (origBeanClass == null)
-			return null;
-		if (beanClass == null)
-			beanClass = origBeanClass;
-		else 
-			getRootElement().setName(xstream.getMapper().serializedClass(beanClass));
-		if (getVersion() != null) {
-			if (MigrationHelper.migrate(getVersion(), beanClass, this)) {
-				setVersion(MigrationHelper.getVersion(beanClass));
-				Object bean = xstream.unmarshal(domReader);
-				if (listener != null) 
-					listener.migrated(bean);
-				return bean;
-			} else {
-				return xstream.unmarshal(domReader);
-			}
+
+		XStream xstream;
+		final boolean[] migrated = {false};
+		if (listener != null) {
+			//can't use default in case of listener as it is shared, creating a new one
+			xstream = new XStream();
+			xstream.registerConverter(new NeedMigrationConverter(xstream, new MigrationListener() {
+				@Override
+				public void migrated(final Object bean) {
+					migrated[0] = true;
+				}
+			}));
+			xstream.registerConverter(new IgnoreUnknownElementsMapConverter(xstream));
 		} else {
-			return xstream.unmarshal(domReader);
+			xstream = defaultXstream;
+		}
+
+		Class<?> origBeanClass = HierarchicalStreams.readClassType(domReader, xstream.getMapper());
+		if (origBeanClass == null) return null;
+
+		if (beanClass != null) {
+			getRootElement().setName(xstream.getMapper().serializedClass(beanClass));
+		}
+		Object result = xstream.unmarshal(domReader);
+		if (listener != null && migrated[0]) {
+			listener.migrated(result);
+		}
+
+		return result;
+	}
+
+	public static VersionedDocument fromXML(final FileReader fr) {
+		synchronized (reader) {
+			try {
+				return new VersionedDocument(reader.read(fr));
+			} catch (DocumentException e) {
+				throw new RuntimeException(e);
+			}
 		}
 	}
-	
-	/**
-	 * Get version of the document
-	 * @return
-	 */
-	public String getVersion() {
-		return getRootElement().attributeValue("version");
-	}
-	
-	/**
-	 * Set version of the document
-	 * @param version
-	 */
-	public void setVersion(String version) {
-		getRootElement().addAttribute("version", version);
-	}
-	
 }

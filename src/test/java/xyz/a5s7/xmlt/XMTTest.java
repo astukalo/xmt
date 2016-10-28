@@ -1,15 +1,15 @@
-package com.pmease.commons.xmt;
+package xyz.a5s7.xmlt;
 
-import com.pmease.commons.xmt.bean.Bean1;
-import com.pmease.commons.xmt.bean.Bean2;
-import com.pmease.commons.xmt.bean.Bean3;
-import com.pmease.commons.xmt.bean.Bean4;
-import com.pmease.commons.xmt.bean.Bean5;
-import com.pmease.commons.xmt.bean.Bean7;
-import com.pmease.commons.xmt.bean.CompileTask;
+import xyz.a5s7.xmlt.bean.Bean1;
+import xyz.a5s7.xmlt.bean.Bean2;
+import xyz.a5s7.xmlt.bean.Bean3;
+import xyz.a5s7.xmlt.bean.Bean4;
+import xyz.a5s7.xmlt.bean.Bean5;
+import xyz.a5s7.xmlt.bean.Bean7;
+import xyz.a5s7.xmlt.bean.CompileTask;
 import org.junit.Test;
 
-import static com.pmease.commons.xmt.Util.readXML;
+import static xyz.a5s7.xmlt.Util.readXML;
 import static org.junit.Assert.assertEquals;
 
 public class XMTTest {

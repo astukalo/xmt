@@ -1,6 +1,6 @@
-package com.pmease.commons.xmt.bean;
+package xyz.a5s7.xmlt.bean;
 
-import com.pmease.commons.xmt.VersionedDocument;
+import xyz.a5s7.xmlt.VersionedDocument;
 import org.dom4j.Element;
 
 import java.util.Stack;

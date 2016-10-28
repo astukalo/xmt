@@ -1,9 +1,8 @@
-package com.pmease.commons.xmt;
+package xyz.a5s7.xmlt;
 
 /**
  * This listener class is used as a callback when migration is finished.
  * @author robin
- *
  */
 public interface MigrationListener {
 	/**

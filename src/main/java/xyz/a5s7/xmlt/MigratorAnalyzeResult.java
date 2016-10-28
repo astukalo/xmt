@@ -1,4 +1,4 @@
-package com.pmease.commons.xmt;
+package xyz.a5s7.xmlt;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -7,9 +7,9 @@ import java.util.List;
 import java.util.Map;
 
 class MigratorAnalyzeResult {
-	private Map<String, Integer> migrateVersions = new HashMap<String, Integer>();
+	private Map<String, Integer> migrateVersions = new HashMap<>();
 	
-	private List<Method> migrateMethods = new ArrayList<Method>();
+	private List<Method> migrateMethods = new ArrayList<>();
 
 	public Map<String, Integer> getMigrateVersions() {
 		return migrateVersions;
@@ -21,9 +21,6 @@ class MigratorAnalyzeResult {
 	
 	public int getDataVersion() {
 		int size = migrateMethods.size();
-		if (size != 0)
-			return migrateVersions.get(migrateMethods.get(size - 1).getName());
-		else
-			return 0;
+        return size != 0 ? migrateVersions.get(migrateMethods.get(size - 1).getName()) : 0;
 	}
 }	

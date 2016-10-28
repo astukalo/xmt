@@ -1,4 +1,4 @@
-package com.pmease.commons.xmt.bean;
+package xyz.a5s7.xmlt.bean;
 
 
 public class Bean4 {
