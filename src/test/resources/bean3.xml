@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xyz.a5s7.xmlt.bean.BeanWithMigration>
+  <str>test</str>
+  <dbl>1231.6</dbl>
+  <!--this field was removed from java-->
+  <i>5</i>
+  <nestedBean>
+    <!--was double, but in Nested bean it is Integer-->
+    <i>34.8</i>
+    <str>nnnnn</str>
+  </nestedBean>
+</xyz.a5s7.xmlt.bean.BeanWithMigration>

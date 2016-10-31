@@ -67,6 +67,6 @@ public class NeedMigrationConverter implements Converter {
 
     @Override
     public boolean canConvert(final Class aClass) {
-        return NeedMigration.class.isAssignableFrom(aClass);
+        return aClass.getAnnotation(NeedMigration.class) != null;
     }
 }

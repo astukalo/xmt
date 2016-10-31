@@ -1,9 +1,9 @@
 package xyz.a5s7.xmlt.bean;
 
-import xyz.a5s7.xmlt.VersionedDocument;
+import org.dom4j.tree.DefaultElement;
 
+import java.util.Deque;
 import java.util.List;
-import java.util.Stack;
 
 public class CompileTask extends AbstractCompileTask {
 	public List<String> srcFiles;
@@ -11,13 +11,13 @@ public class CompileTask extends AbstractCompileTask {
 	public String destDir = "classes";
 
 	@SuppressWarnings("unused")
-	private void migrate1(VersionedDocument dom, Stack<Integer> versions) {
-		dom.getRootElement().addElement("destDir").setText("classes");
+	private void migrate1(DefaultElement dom, Deque<Integer> versions) {
+		dom.addElement("destDir").setText("classes");
 	}
 
 	@SuppressWarnings("unused")
-	private void migrate2(VersionedDocument dom, Stack<Integer> versions) {
+	private void migrate2(DefaultElement dom, Deque<Integer> versions) {
 		versions.push(0);
-		dom.getRootElement().addElement("options").setText("-debug");
+		dom.addElement("options").setText("-debug");
 	}
 }

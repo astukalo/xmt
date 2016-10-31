@@ -7,7 +7,7 @@ import xyz.a5s7.xmlt.NeedMigration;
 import java.util.Deque;
 
 @NeedMigration
-public class Bean2 {
+public class Parent {
 	private int priority;
 
 	public int getPriority() {

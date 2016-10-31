@@ -1,18 +1,20 @@
 package xyz.a5s7.xmlt.bean;
 
-import xyz.a5s7.xmlt.MigrationHelper;
-import xyz.a5s7.xmlt.VersionedDocument;
 import org.dom4j.Element;
+import org.dom4j.tree.DefaultElement;
+import xyz.a5s7.xmlt.MigrationHelper;
+import xyz.a5s7.xmlt.NeedMigration;
 
-import java.util.Stack;
+import java.util.Deque;
 
+@NeedMigration
 public class AbstractCompileTask {
 	public int priority;
 
 	public String options = "-debug";
 
 	@SuppressWarnings("unused")
-	private void migrate1(VersionedDocument dom, Stack<Integer> versions) {
+	private void migrate1(DefaultElement dom, Deque<Integer> versions) {
 		int taskVersion = versions.pop();
 		MigrationHelper.migrate(String.valueOf(taskVersion),
 				TaskMigrator.class, dom);
@@ -21,8 +23,8 @@ public class AbstractCompileTask {
 	public static class TaskMigrator {
 
 		@SuppressWarnings("unused")
-		private void migrate1(VersionedDocument dom, Stack<Integer> versions) {
-			Element element = dom.getRootElement().element("prioritized");
+		private void migrate1(DefaultElement dom, Deque<Integer> versions) {
+			Element element = dom.element("prioritized");
 			element.setName("priority");
 			if (element.getText().equals("true"))
 				element.setText("HIGH");
@@ -31,8 +33,8 @@ public class AbstractCompileTask {
 		}
 
 		@SuppressWarnings("unused")
-		private void migrate2(VersionedDocument dom, Stack<Integer> versions) {
-			Element element = dom.getRootElement().element("priority");
+		private void migrate2(DefaultElement dom, Deque<Integer> versions) {
+			Element element = dom.element("priority");
 			if (element.getText().equals("HIGH"))
 				element.setText("10");
 			else if (element.getText().equals("MEDIUM"))

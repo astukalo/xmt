@@ -1,24 +1,22 @@
 package xyz.a5s7.xmlt;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
-import java.io.UnsupportedEncodingException;
 
 public class Util {
 	public static String readXML(String fileName) {
 		InputStream is = null;
-		StringBuffer buffer = new StringBuffer();
+		StringBuilder buffer = new StringBuilder();
 		try {
-			is = Util.class.getResourceAsStream("/com/pmease/commons/xmt/xml/" + fileName);
+			is = Util.class.getClassLoader().getResourceAsStream(fileName);
 			Reader in = new InputStreamReader(is, "UTF8");
 			int c;
 			while ((c = in.read()) != -1)
 				buffer.append((char)c);
 			return buffer.toString();
-		} catch (UnsupportedEncodingException e) {
-			throw new RuntimeException(e);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		} finally {
@@ -29,4 +27,9 @@ public class Util {
 				}
 		}
 	}
+
+	public static File getFile(String name) {
+		return new File(Util.class.getClassLoader().getResource(name).getPath());
+	}
+
 }

@@ -1,10 +1,12 @@
 package xyz.a5s7.xmlt.bean;
 
-import xyz.a5s7.xmlt.VersionedDocument;
 import org.dom4j.Element;
+import org.dom4j.tree.DefaultElement;
+import xyz.a5s7.xmlt.NeedMigration;
 
-import java.util.Stack;
+import java.util.Deque;
 
+@NeedMigration
 public class Bean1 {
 	private int priority;
 
@@ -15,10 +17,10 @@ public class Bean1 {
 	public void setPriority(int priority) {
 		this.priority = priority;
 	}
-	
+
 	@SuppressWarnings("unused")
-	private void migrate1(VersionedDocument dom, Stack<Integer> versions) {
-		Element element = dom.getRootElement().element("prioritized");
+	private void migrate1(DefaultElement dom, Deque<Integer> versions) {
+		Element element = dom.element("prioritized");
 		element.setName("priority");
 		if (element.getText().equals("true"))
 			element.setText("10");
