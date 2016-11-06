@@ -1,47 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6b664e2d-1d3b-4bbb-b70d-8818a922f291" name="Default" comment="Renamed packages">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/readme.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/resources/bean4.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules/xmlt.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules/xmlt_main.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules/xmlt_test.iml" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/xyz/a5s7/xmlt/IgnoreUnknownElementsMapConverter.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/a5s7/xmt/IgnoreUnknownElementsMapConverter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/xyz/a5s7/xmlt/MigrationHelper.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/a5s7/xmt/MigrationHelper.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/xyz/a5s7/xmlt/MigrationListener.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/a5s7/xmt/MigrationListener.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/xyz/a5s7/xmlt/MigratorAnalyzeResult.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/a5s7/xmt/MigratorAnalyzeResult.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/xyz/a5s7/xmlt/NeedMigration.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/a5s7/xmt/NeedMigration.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/xyz/a5s7/xmlt/NeedMigrationConverter.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/a5s7/xmt/NeedMigrationConverter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/xyz/a5s7/xmlt/VersionedDocument.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/a5s7/xmt/VersionedDocument.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/xyz/a5s7/xmlt/Util.java" afterPath="$PROJECT_DIR$/src/test/java/xyz/a5s7/xmt/Util.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/xyz/a5s7/xmlt/XMLTTest.java" afterPath="$PROJECT_DIR$/src/test/java/xyz/a5s7/xmt/XMTTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/xyz/a5s7/xmlt/bean/AbstractCompileTask.java" afterPath="$PROJECT_DIR$/src/test/java/xyz/a5s7/xmt/bean/AbstractCompileTask.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/xyz/a5s7/xmlt/bean/Bean1.java" afterPath="$PROJECT_DIR$/src/test/java/xyz/a5s7/xmt/bean/Bean1.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/xyz/a5s7/xmlt/bean/Bean2.java" afterPath="$PROJECT_DIR$/src/test/java/xyz/a5s7/xmt/bean/Bean2.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/xyz/a5s7/xmlt/bean/Bean3.java" afterPath="$PROJECT_DIR$/src/test/java/xyz/a5s7/xmt/bean/Bean3.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/xyz/a5s7/xmlt/bean/Bean4.java" afterPath="$PROJECT_DIR$/src/test/java/xyz/a5s7/xmt/bean/Bean4.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/xyz/a5s7/xmlt/bean/Bean5.java" afterPath="$PROJECT_DIR$/src/test/java/xyz/a5s7/xmt/bean/Bean5.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/xyz/a5s7/xmlt/bean/Bean6.java" afterPath="$PROJECT_DIR$/src/test/java/xyz/a5s7/xmt/bean/Bean6.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/xyz/a5s7/xmlt/bean/Bean7.java" afterPath="$PROJECT_DIR$/src/test/java/xyz/a5s7/xmt/bean/Bean7.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/xyz/a5s7/xmlt/bean/BeanWithMigration.java" afterPath="$PROJECT_DIR$/src/test/java/xyz/a5s7/xmt/bean/BeanWithMigration.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/xyz/a5s7/xmlt/bean/Child.java" afterPath="$PROJECT_DIR$/src/test/java/xyz/a5s7/xmt/bean/Child.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/xyz/a5s7/xmlt/bean/CompileTask.java" afterPath="$PROJECT_DIR$/src/test/java/xyz/a5s7/xmt/bean/CompileTask.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/xyz/a5s7/xmlt/bean/NestedBean.java" afterPath="$PROJECT_DIR$/src/test/java/xyz/a5s7/xmt/bean/NestedBean.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/xyz/a5s7/xmlt/bean/Parent.java" afterPath="$PROJECT_DIR$/src/test/java/xyz/a5s7/xmt/bean/Parent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.gradle" afterPath="$PROJECT_DIR$/settings.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/resources/bean1.xml" afterPath="$PROJECT_DIR$/src/test/resources/bean1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/resources/bean2.xml" afterPath="$PROJECT_DIR$/src/test/resources/bean2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/resources/bean3.xml" afterPath="$PROJECT_DIR$/src/test/resources/bean3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/resources/bean6.xml" afterPath="$PROJECT_DIR$/src/test/resources/bean6.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/resources/bean7.xml" afterPath="$PROJECT_DIR$/src/test/resources/bean7.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/resources/task.xml" afterPath="$PROJECT_DIR$/src/test/resources/task.xml" />
+    <list default="true" id="6b664e2d-1d3b-4bbb-b70d-8818a922f291" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gradle/3.1/taskArtifacts/cache.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gradle/3.1/taskArtifacts/cache.properties.lock" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gradle/3.1/taskArtifacts/fileHashes.bin" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gradle/3.1/taskArtifacts/fileSnapshots.bin" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gradle/3.1/taskArtifacts/taskArtifacts.bin" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -132,7 +103,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VersionedDocument.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="VersionedDocument.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/xyz/a5s7/xmt/VersionedDocument.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="76">
@@ -141,6 +112,16 @@
                 <element signature="e#8991#8992#0" expanded="true" />
                 <element signature="e#9065#9066#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -187,16 +168,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="22" selection-start-line="0" selection-start-column="22" selection-end-line="0" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bean1.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/resources/bean1.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -586,6 +557,7 @@
         <option value="$PROJECT_DIR$/src/test/resources/bean4.xml" />
         <option value="$PROJECT_DIR$/readme.md" />
         <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -714,32 +686,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
               <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xmt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xmlt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xmt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -1186,7 +1132,21 @@
       <option name="project" value="LOCAL" />
       <updated>1478378331415</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Renamed packages">
+      <created>1478465957264</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1478465957264</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Updated .gitignore">
+      <created>1478466209141</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1478466209141</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1244,11 +1204,11 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" x="100" y="180" width="1166" height="544" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.57419354" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.45967743" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31451613" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39229023" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5064516" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18787879" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5037879" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="ReST Console" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12954545" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1324,7 +1284,8 @@
     <MESSAGE value="- Package renamed&#10;- Added NeedMigration marker interface" />
     <MESSAGE value="- NeedMigration changed to annotation&#10;- Added tests" />
     <MESSAGE value="Renamed packages" />
-    <option name="LAST_COMMIT_MESSAGE" value="Renamed packages" />
+    <MESSAGE value="Updated .gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated .gitignore" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1490,14 +1451,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="8" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1712,6 +1665,14 @@
             <element signature="e#8991#8992#0" expanded="true" />
             <element signature="e#9065#9066#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
