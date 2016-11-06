@@ -1,4 +1,4 @@
-package xyz.a5s7.xmlt.bean;
+package xyz.a5s7.xmt.bean;
 
 import org.dom4j.tree.DefaultElement;
 

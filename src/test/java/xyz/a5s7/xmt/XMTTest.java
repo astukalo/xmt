@@ -1,15 +1,15 @@
-package xyz.a5s7.xmlt;
+package xyz.a5s7.xmt;
 
 import org.junit.Test;
-import xyz.a5s7.xmlt.bean.Bean1;
-import xyz.a5s7.xmlt.bean.Bean2;
-import xyz.a5s7.xmlt.bean.Bean3;
-import xyz.a5s7.xmlt.bean.Bean4;
-import xyz.a5s7.xmlt.bean.Bean5;
-import xyz.a5s7.xmlt.bean.Bean7;
-import xyz.a5s7.xmlt.bean.BeanWithMigration;
-import xyz.a5s7.xmlt.bean.Child;
-import xyz.a5s7.xmlt.bean.CompileTask;
+import xyz.a5s7.xmt.bean.Bean1;
+import xyz.a5s7.xmt.bean.Bean2;
+import xyz.a5s7.xmt.bean.Bean3;
+import xyz.a5s7.xmt.bean.Bean4;
+import xyz.a5s7.xmt.bean.Bean5;
+import xyz.a5s7.xmt.bean.Bean7;
+import xyz.a5s7.xmt.bean.BeanWithMigration;
+import xyz.a5s7.xmt.bean.Child;
+import xyz.a5s7.xmt.bean.CompileTask;
 
 import java.io.FileReader;
 
@@ -17,10 +17,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
-import static xyz.a5s7.xmlt.Util.getFile;
-import static xyz.a5s7.xmlt.Util.readXML;
+import static xyz.a5s7.xmt.Util.getFile;
+import static xyz.a5s7.xmt.Util.readXML;
 
-public class XMLTTest {
+public class XMTTest {
 	
 	@Test
 	public void testMigration() {
@@ -72,6 +72,16 @@ public class XMLTTest {
 	//Field exists in xml, but type changed - was double, became int.
 	public void shouldSucceedWhenFieldTypeChangedButBeanHasMigrateMethod() throws Exception {
 		try (FileReader fr = new FileReader(getFile("bean3.xml"))) {
+			BeanWithMigration o = (BeanWithMigration) VersionedDocument.fromXML(fr).toBean();
+			assertNotNull(o);
+			assertEquals(35, o.getNestedBean().getI().intValue());
+		}
+	}
+
+	@Test
+	//Field exists in xml, but type changed - was double, became int.
+	public void shouldSucceedWhenNestedBeanHasVersion() throws Exception {
+		try (FileReader fr = new FileReader(getFile("bean4.xml"))) {
 			BeanWithMigration o = (BeanWithMigration) VersionedDocument.fromXML(fr).toBean();
 			assertNotNull(o);
 			assertEquals(35, o.getNestedBean().getI().intValue());

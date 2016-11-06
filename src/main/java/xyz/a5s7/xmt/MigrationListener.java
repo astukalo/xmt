@@ -1,4 +1,4 @@
-package xyz.a5s7.xmlt;
+package xyz.a5s7.xmt;
 
 /**
  * This listener class is used as a callback when migration is finished.

@@ -12,5 +12,6 @@ repositories {
 dependencies {
     compile group: 'dom4j', name: 'dom4j', version: '1.6.1'
     compile group: 'com.thoughtworks.xstream', name: 'xstream', version: '1.4.9'
+
     testCompile 'junit:junit:4.12'
 }

@@ -5,9 +5,8 @@
   <dbl>1231.6</dbl>
   <!--this field was removed from java-->
   <i>5</i>
-  <nestedBean>
-    <!--was double, but in Nested bean it is Integer-->
-    <i>34.8</i>
+  <nestedBean version="1">
+    <i>35</i>
     <str>nnnnn</str>
   </nestedBean>
 </xyz.a5s7.xmt.bean.BeanWithMigration>

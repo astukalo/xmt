@@ -1,9 +1,9 @@
-package xyz.a5s7.xmlt.bean;
+package xyz.a5s7.xmt.bean;
 
 import org.dom4j.Element;
 import org.dom4j.dom.DOMElement;
 import org.dom4j.tree.DefaultElement;
-import xyz.a5s7.xmlt.NeedMigration;
+import xyz.a5s7.xmt.NeedMigration;
 
 import java.util.Deque;
 

@@ -1,7 +1,7 @@
-<xyz.a5s7.xmlt.bean.CompileTask version="1.0">
+<xyz.a5s7.xmt.bean.CompileTask version="1.0">
   <priority>HIGH</priority>
   <srcFiles>
     <string>Class1.java</string>
     <string>Class2.java</string>
   </srcFiles>
-</xyz.a5s7.xmlt.bean.CompileTask>
+</xyz.a5s7.xmt.bean.CompileTask>

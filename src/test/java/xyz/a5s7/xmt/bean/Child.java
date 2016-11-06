@@ -1,10 +1,10 @@
-package xyz.a5s7.xmlt.bean;
+package xyz.a5s7.xmt.bean;
 
 import org.dom4j.tree.DefaultElement;
 
 import java.util.Deque;
 
-public class Bean3 extends Bean1 {
+public class Child extends Bean1 {
 	
 	private int age;
 	
@@ -22,5 +22,6 @@ public class Bean3 extends Bean1 {
 	
 	@SuppressWarnings("unused")
 	private void migrate3(DefaultElement dom, Deque<Integer> versions) {
+		//it is possible to skip some versions
 	}
 }

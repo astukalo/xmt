@@ -1,6 +1,6 @@
-package xyz.a5s7.xmlt.bean;
+package xyz.a5s7.xmt.bean;
 
-import xyz.a5s7.xmlt.VersionedDocument;
+import xyz.a5s7.xmt.VersionedDocument;
 import org.dom4j.Element;
 
 import java.util.Stack;

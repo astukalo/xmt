@@ -1,4 +1,4 @@
-package xyz.a5s7.xmlt;
+package xyz.a5s7.xmt;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
